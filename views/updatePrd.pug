@@ -1,0 +1,44 @@
+extends layout
+block content
+  div
+    // main
+    .main-layouts.wrapper
+      h1 Product Upload Form
+      .main-inputs
+        .spacing
+          form(action='/updateproduct?id='+user._id' method='POST' onsubmit=''  enctype="multipart/form-data" )
+              input.text(type='text' name='productname' placeholder='Product Name' required='')
+              input.text(type='text' name='unitprice' placeholder='Unit Price' required='' style='margin-top:20px')
+              input#quantity.form-control(type='text' name='quantity' placeholder='Quantity by weight')  
+              br  
+              input#date.form-control(type='date' name='date' placeholder='Date of Upload')
+              input#direction.form-control(type='text' name='direction' placeholder='Home Directions')
+              br
+              select.form-control(name="productType")
+                    option(value="product") Product type
+                    option(value="organic") Organic
+                    option(value="nonoganic") In-Organic
+              br    
+              select.form-control(name="ward")
+                    option(value="ward") Select Ward
+                    option(value="east") East Ward
+                    option(value="west") West Ward
+                    option(value="north") North Ward 
+                    option(value="South") South Ward  
+              br
+              select.form-control(name="payment")
+                    option(value="product") Payment Mode
+                    option(value="organic") Cash
+                    option(value="nonoganic") MobileMoney
+              br 
+              select.form-control(name="delivery")
+                    option(value="product") Preffered Delivery
+                    option(value="pickup") Pick Up
+                    option(value="homedelivery") Home Delivery  
+              br
+              br      
+              <input type="file" accept="image/*" name="photo" >          
+              input(type='submit' value='Submit')
+    .footer
+      .footer-bottom
+        | &copy;  ufarm.com | Designed by Diana Apolat  

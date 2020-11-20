@@ -1,0 +1,122 @@
+
+*{
+    box-sizing:border-box;
+}
+
+.page-wrapper{
+ min-height: 100%;   
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    color: white;
+}
+.ufarm{
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li{
+    list-style: none;
+}
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover{
+    background-color: #555;
+}
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#farmerReg{
+    text-align: center;
+}
+
+/* footer*/
+
+.footer .footer-bottom {
+    background: #343a34;
+    color: #686868;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    padding-top: 20px;
+ 
+}
+/* media queries allows to run when a certain conditon is met*/
+@media(max-width: 400px){
+    .toggle-button{
+        display: flex;
+    }
+    .navbar-links{
+        display: none;
+        width: 100%;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+
+    }
+    .navbar-links li{
+        text-align: center;
+    }
+    .navbar-links li a{
+        padding: .5rem 1rem;
+    }
+}
+.navbar-links .active{
+    display: flex;
+}
+
+.container{
+    margin: 0 auto;
+}
+.card{
+    padding: 30px;
+}
+.form-control{
+    color:  white;
+    background-color: rgb(18, 18, 61);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    margin-top: 10px;
+}
+.form-control::placeholder{
+    color:white
+}
+.form-left{
+    border-right: 2px solid rgba(200, 200, 200, 0.5);
+}

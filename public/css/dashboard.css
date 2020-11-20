@@ -1,0 +1,42 @@
+.main{
+   /* fallback for old browsers */
+   background-image:url(../pictures/farmProducts.jpg);
+   background-size: cover;
+   background-attachment: fixed;
+   font-family: 'Roboto', sans-serif;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vw;
+  }
+
+  .sidenav {
+    background-color: green;
+    flex: 20%;
+    padding: 20px;
+    
+  }
+
+  .main {
+    flex: 80%;
+    background-color: white;
+    padding: 20px;
+  }
+  .footer {
+    background-color:#184857;
+    color: white;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+  }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 600px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;          
+    }
+    .row.content {height: auto;} 
+  }

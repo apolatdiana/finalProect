@@ -1,0 +1,102 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title UFarm
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/index.css' type='text/css' media='all')
+  link(rel='stylesheet' href='css/home.css' type='text/css' media='all')
+div
+  nav.navbar
+    .ufarm UFarm
+    a.toggle-button(href='#')
+      span.bar
+      span.bar
+      span.bar
+      span.bar
+    .navbar-links
+      ul
+        li
+          a(href='aoDashboard') Home
+        li
+          a(href='foList') Registered FOs
+        li
+          a(href='foReg') Register FO
+        li
+          a(href='logIn') LogOut
+  .page-wrapper
+    .main-layouts.wrapper
+      h1 Farmer One Reg Form
+      .main-inputs
+        .spacing
+          form(action='/foRegData' method='POST')
+            .row
+              .col-md-6.form-left
+                .mb-4.ml-5
+                  img(src='pictures/pic1.jpg' alt='' style='height: 100px; width: 100px;')
+                  br
+                  a(href='') Upload photo
+                input#name.form-control(type='text' name='username' placeholder='Name')
+                input#password.form-control(type='password' name='password' placeholder='Password')
+                input#email.form-control(type='email' name='email' placeholder='Email')
+                input#role.form-control(type='text' name='role' placeholder='Role')
+                label.form-check.form-check-inline(style='color:white') Gender
+                    br
+                    br
+                    input.form-check-input(type="radio" name="gender" value="female")
+                    span.form-check-label(style='color:white') Female 
+                label.form-check.form-check-inline
+                    input.form-check-input(type="radio" name="gender" value="male")
+                    span.form-check-label(style='color:white; float:right') Male
+              .col-md-6.form-right
+                input#nin.form-control(type='text' name='nin' placeholder='NIN')
+                input#occupation.form-control(type='text' name='occupation' placeholder='Occupation')
+                input#location.form-control(type='text' name ='location' placeholder='Home location')
+                input#contact.form-control(type='tel' name ='phonenumber' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number')
+                input#age.form-control(type='date' name='date' placeholder='Date of Birth')
+                select.form-control(name="resident")
+                    option(value="type") Resident Type
+                    option(value="permanent") Permanent
+                    option(value="non") Non-Resident
+                select.form-control(name="ward")
+                    option(value="ward") Select Ward
+                    option(value="east") East Ward
+                    option(value="west") West Ward
+                    option(value="north") North Ward 
+                    option(value="South") South Ward 
+              input(type='submit' value='SIGNUP')
+    br
+  .footer
+    .footer-content(style='background-color: darkslategray; color: white;')
+      .row
+        .col-md-3
+          h2 About
+          p
+            a(href='#')  Services
+          p
+            a(href='#')  Policies
+          p
+            a(href='#')  Services
+        .col-md-3
+          h2 Contact us
+          p
+            a(href='#')  Services
+          p
+            a(href='#')  Services
+          p
+            a(href='#')  Services
+        .col-md-3
+          h2 Stay Updated
+          p
+            a(href='#')  Suscribe to get updates on new products
+            form
+              .row
+                .col-md-8
+                  input.form-control(type='Email' name='email' placeholder='Enter Email' required='')
+                .col-md-4
+                  button.btn.btn-success(type='Submit') Submit 
+      .footer-bottom
+        | &copy;  ufarm.com | Designed by Diana Apolat
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
+script(src='./home.js')

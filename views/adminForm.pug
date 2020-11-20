@@ -1,0 +1,20 @@
+extends layout
+block content
+  div
+    // main
+    .main-layouts.wrapper
+      h1 Admin Registration Form
+      .main-inputs
+        .spacing
+          form(action='/admin' method='POST' onsubmit='')
+              input.text(type='text' name='username' placeholder='username' required='')
+              input.text.email(type='text' name='email' placeholder='Email' required='')
+              input.text.email(type='text' name='role' placeholder='Role' required='')
+              input.text( type='password' name='password' placeholder='Password' required='')
+              input(type='submit' value='Register')
+          p
+            | Already have an Account? 
+            a(href='./login')  Login Now!
+    .footer
+      .footer-bottom
+        | &copy;  ufarm.com | Designed by Diana Apolat  

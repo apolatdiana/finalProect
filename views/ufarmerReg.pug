@@ -1,0 +1,50 @@
+extends layout
+block content
+  div
+    // main
+    .main-layouts.wrapper
+      h1 UFarm Registration Form
+      .main-inputs
+        .spacing
+          form(action='/ufarmData' method='POST' onsubmit='')
+              input.text(type='text' name='username' placeholder='username' required='')
+              input.text.email(type='email' name='email' placeholder='Email' required='')
+              input.text.email(type='text' name='role' placeholder='Role' required='')
+              input.text(type='tel' name ='phonenumber'  placeholder='Phone Number' required='' style='margin-bottom:20px')
+              input.text( type='password' name='password' placeholder='Password' required='')
+              input#nin.form-control(type='text' name='nin' placeholder='NIN')
+              input.text(type='text' name='occupation' placeholder='Occupation' required='' style='margin-top:20px')
+              label.form-check.form-check-inline(style='color:white') Gender
+                    input.form-check-input(type="radio" name="gender" value="female")
+                    span.form-check-label(style='color:white') Female 
+              label.form-check.form-check-inline
+                    input.form-check-input(type="radio" name="gender" value="male")
+                    span.form-check-label(style='color:white') Male
+                    br
+              input#age.form-control(type='date' name='birthDate' placeholder='Date of Dirth')  
+              br  
+              input#age.form-control(type='date' name='date' placeholder='Date of Registration')
+              br
+              select.form-control(name="resident")
+                    option(value="type") Resident Type
+                    option(value="permanent") Permanent
+                    option(value="non") Non-Resident
+              br      
+              select.form-control(name="ward")
+                    option(value="ward") Select Ward
+                    option(value="east") East Ward
+                    option(value="west") West Ward
+                    option(value="north") North Ward 
+                    option(value="South") South Ward       
+              .text-box
+                label.anim
+                  input.checkbox(type='checkbox' required='')
+                  span I Agree To The Terms &amp; Conditions
+                .clear  
+              input(type='submit' value='Register')
+          p
+            | Already have an Account? 
+            a(href='./login')  Login Now!
+    .footer
+      .footer-bottom
+        | &copy;  ufarm.com | Designed by Diana Apolat  

@@ -1,0 +1,74 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='icon' href='css/LOGO.png' type='image/gif' sizes='20x20')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/form.css')
+div
+  .row
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.col-md-12
+      img.col-md-3.mr-5(src='pictures/ulogo.JPG' alt='' style='width:5rem; height:5rem;')
+      .col-md-8
+        .navbar-brand.text-muted(style='padding-left: 20px;')
+          h2
+            strong(style='color:green')
+              i UFARM
+        .float-right
+          button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarTogglerDemo02.collapse.navbar-collapse
+            form.form-inline.my-2.my-lg-0
+              input.form-control.mr-sm-2(type='search' placeholder='Search')
+              button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+            ul.navbar-nav.mr-auto.mt-2.ml-2
+              li.nav-item
+                a#logout.nav-link(href='./logIn') Logout
+div.form-row
+        div.col.form-group.col-md-12   
+            form.search(action='./foRegData')
+.container.mt-5.card(style='padding: 2%; ')
+    h2 Fearmer Ones
+    .mt-5(style='overflow-x:auto;')
+      table.table.table-striped
+        thead
+          tr
+            th(scope='col') Name
+            th(scope='col') Phone Number
+            th(scope='col') Email
+            th(scope='col') Gender
+            th(scope='col') ID
+            th(scope='col') Date of birth
+            th(scope='col') NIN 
+            th(scope='col') Occupation
+            th(scope='col') Location
+            th(scope='col') Resident type
+            th(scope='col') Ward
+            th
+        tbody#tableBody
+          if users.length
+          each user in users
+            tr
+              td #{user.username}
+              td #{user.email}
+              td #{user.gender}
+              td #{user.nin}
+              td #{user.occupation}
+              td #{user.location}
+              td #{user.phonenumber}
+              td #{user.date}
+              td #{user.resident}
+              td #{user.ward}
+              
+              td
+                a(href='/update/'+ user._id) Update
+              //- td
+              //-   form(method='POST' action='/delete')
+              //-     input(type='hidden', placeholder='',name='id', value=user._id)
+              //-     button.btn.btn-dark.btn-block(type="submit") Delete
+          else
+                  p No registrations yet :(
+br
+.footer.container-fluid(style='color: white;')
+    h5
+      i &copy; Ufarm 2020
+script(src='')
