@@ -11,7 +11,7 @@ router.get('/logIn', (req, res) => {
 router.post('/logIn', passport.authenticate('local', {failureRedirect: '/logIn'}), (req,res) =>{
     req.session.user = req.user;
     console.log(req.body);
-    const userRole = roles[req.user.role]
+    const userRole = req.user.role
     
     if(userRole == 'admin')
         {
@@ -19,12 +19,12 @@ router.post('/logIn', passport.authenticate('local', {failureRedirect: '/logIn'}
         }
     else if(userRole == 'farmer1')
         {
-        res.redirect('/foDashboard');
+         res.redirect('/foDashboard');
         }
-    else(userRole == 'ufarmer')
-    {
-    res.redirect('/ufDashboard');
-}
+    else if(userRole == 'ufarmer')
+        {
+         res.redirect('/ufDashboard');
+        }
 })
 
 

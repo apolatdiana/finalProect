@@ -6,7 +6,7 @@ block content
       h1 Product Upload Form
       .main-inputs
         .spacing
-          form(action='/updateproduct?id='+user._id' method='POST' onsubmit=''  enctype="multipart/form-data" )
+          form(action='/updateproduct?id='+user._id method='POST' onsubmit=''  enctype="multipart/form-data" )
               input.text(type='text' name='productname' placeholder='Product Name' required='')
               input.text(type='text' name='unitprice' placeholder='Unit Price' required='' style='margin-top:20px')
               input#quantity.form-control(type='text' name='quantity' placeholder='Quantity by weight')  
@@ -41,4 +41,4 @@ block content
               input(type='submit' value='Submit')
     .footer
       .footer-bottom
-        | &copy;  ufarm.com | Designed by Diana Apolat  
+        | &copy;  ufarm.com | Designed by Diana Apolat   

@@ -8,7 +8,6 @@ const UserCredential =require('../models/UserCredential');
 router.get('/aoDashboard', async (req, res) => {
     if (req.session.user) {
         try {
-
             let auser = await UserCredential.find();
             console.log(auser)
             if (req.query.email) {
@@ -28,36 +27,37 @@ router.get('/aoDashboard', async (req, res) => {
 //specify what to be done when user hits end point
 
 router.get('/foRegData', (req, res) => {
-    if (res.session.user) {
+    if (req.session.user) {
     res.render('foReg'//, { title: 'Reg form' }
         );
     } else {
         console.log("Cant find session")
-        req.redirect('logIn')
+        res.redirect('logIn')
     }
 });
  
-router.post('/foRegData', async (req, res) => {
-    if (res.session.user) {
-        try {
-            const foreg = new FoReg(req.body);
+// router.post('/foRegData', async (req, res) => {
+//     if (req.session.user) {
+//         try {
+//             const foreg = new FoReg(req.body);
         
-            await FoReg.register(foreg, req.body.password, (err) => {
-                if (err) {
-                    throw err
-                }
-                res.redirect('foRegData')
-            })
-        } catch (err) {
-            res.status(400).send('Sorry! Something went wrong.')
-            console.log(err)
-        }
-    } else {
-            console.log("Cant find session")
-            req.redirect('logIn')
-        }
-});
- // retrieve data from the database 
+//             await FoReg.register(foreg, req.body.password, (err) => {
+//                 if (err) {
+//                     throw err
+//                 }
+//                 res.redirect('foRegData')
+//             })
+//         } catch (err) {
+//             res.status(400).send('Sorry! Something went wrong.')
+//             console.log(err)
+//         }
+//     } else {
+//             console.log("Cant find session")
+//             res.redirect('logIn')
+//         }
+// });
+
+// retrieve data from the database 
 router.get('/foList', async (req, res) => {
     if (req.session.user) {
         try {
@@ -96,7 +96,7 @@ router.get('/foList', async (req, res) => {
 // })
 
 router.get('/update/:id', async (req, res) => {
-    if(res.session.user){
+    if(req.session.user){
         try {
             const updateUser = await FoReg.findOne({ _id: req.params.id })
             res.render('updatefo', { user: updateUser })
@@ -105,7 +105,7 @@ router.get('/update/:id', async (req, res) => {
         } 
     } else {
         console.log("Cant find session")
-        req.redirect('logIn')
+        res.redirect('logIn')
     }
   
 })
@@ -124,12 +124,12 @@ router.get('/foDashboard', async (req, res) => {
         if (req.session.user) {
             try {
     
-                let auser = await FoReg.find();
-                console.log(auser)
-                if (req.query.gender) {
-                    auser = await FoReg.find({ gender: req.query.gender })
+                let fouser = await UserCredential.find();
+                console.log(fouser)
+                if (req.query.email) {
+                    fouser = await UserCredential.find({ email: req.query.email })
                 }
-                res.render('foDashboard', { users: auser, currentUser: req.session.user })
+                res.render('foDashboard', { users: fouser, currentUser: req.session.user })
                 
             } catch (err) {
                 res.status(400).send('Unable to find Dashboard')
@@ -138,7 +138,28 @@ router.get('/foDashboard', async (req, res) => {
             console.log("Cant find Session")   
         res.redirect('/logIn')    
         }         
-    })
+})
+    
+router.get('/ufDashboard', async (req, res) => {
+    if (req.session.user) {
+        try {
+
+            let ufuser = await UserCredential.find();
+            console.log(ufuser)
+            if (req.query.email) {
+                ufuser = await UserCredential.find({ email: req.query.email })
+            }
+            res.render('ufDashboard', { users: ufuser, currentUser: req.session.user })
+            
+        } catch (err) {
+            res.status(400).send('Unable to find Dashboard')
+        }
+    } else {
+        console.log("Cant find Session")   
+    res.redirect('/logIn')    
+    }         
+})
+
     
     
 

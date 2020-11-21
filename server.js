@@ -75,20 +75,5 @@ app.use('/', foRegRoutes)
 app.use('/', userCredentials)
 
 
-
-app.get('/aoDashboard', (req, res) => {
-    res.render('aoDashboard')
-});
-
-app.get('/foDashboard', (req, res) => {
-    res.render('foDashboard')
-});
-
-app.get('/customerList', (req, res) => {
-    res.render('customerList')
-});
-
-
-
 //creates a server
 app.listen(3000, () => console.log('listening on port 3000'));

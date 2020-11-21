@@ -6,11 +6,11 @@ block content
       h1 Admin Registration Form
       .main-inputs
         .spacing
-          form(action='/admin' method='POST' onsubmit='')
-              input.text(type='text' name='username' placeholder='username' required='')
-              input.text.email(type='text' name='email' placeholder='Email' required='')
-              input.text.email(type='text' name='role' placeholder='Role' required='')
-              input.text( type='password' name='password' placeholder='Password' required='')
+          form(action='/admin' method='POST'  name='signUpForm' onsubmit='register();')
+              input.text(type='text' name='username' placeholder='username' )
+              input.text.email(type='text' name='email' placeholder='Email')
+              input.text.email(type='text' name='role' placeholder='Role')
+              input.text( type='password' name='password' placeholder='Password' )
               input(type='submit' value='Register')
           p
             | Already have an Account? 
@@ -18,3 +18,4 @@ block content
     .footer
       .footer-bottom
         | &copy;  ufarm.com | Designed by Diana Apolat  
+  script(src='js/signup.js')       

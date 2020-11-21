@@ -25,7 +25,7 @@ div
                 a#logout.nav-link(href='./logIn') Logout
 div.form-row
         div.col.form-group.col-md-12   
-            form.search(action='./productData')
+            form.search
 .container.mt-5.card(style='padding: 2%; ')
     h2 Producted Uploaded
     .mt-5(style='overflow-x:auto;')
@@ -60,7 +60,7 @@ div.form-row
                 img(src='/uploads/'+user.photo height="100px" width="100px")
               td #{user.delivery}
               td
-                a(href='/update/'+ user._id) Update
+                a(href='/updateproduct/'+ user._id) Update
               td
                 form(method='POST' action='/delete')
                   input(type='hidden', placeholder='',name='id', value=user._id)
