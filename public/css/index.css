@@ -129,7 +129,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   
   .main-inputs {
     width: 35%;
-    margin: 3em auto;
+   margin: 3em auto;
     background: rgba(0, 0, 0.2, 0.18);
     background-size: cover;
   }
@@ -145,7 +145,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     width: 94.5%;
     display: block;
     border: none;
-    padding: 0.8em;
+     padding: 0.8em; 
     border: solid 1px rgba(255, 255, 255, 0.37);
     -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
@@ -158,9 +158,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-family: 'Roboto', sans-serif;
   }
   
-  input.email, input.tel,input.text.passconfirm {
+  /* input.email, input.tel,input.text.passconfirm {
     margin: 2em 0;
-  }
+  } */
+ 
   
   .text:focus, .text:valid {
     box-shadow: none;
@@ -244,12 +245,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   /*-- checkbox --*/
   .text-box label {
     font-size: 0.9em;
-    color: #fff;
+    color: #f0f0;
     font-weight: 200;
     cursor: pointer;
     position: relative;
   }
-  
+
   input.checkbox {
     background: #8DC26F;
     cursor: pointer;
@@ -574,4 +575,4 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     .main-layouts {
       padding: 1em 0 0;
     }
-  }
+  } 

@@ -6,18 +6,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: 'Please Enter Name'
     },
-    email: {
-        type: String
-    },
+    
     role: {
         type: String,
-        required: true,
-        enum: ["admin", "farmer1","ufarmer"],
-        default: "ufarmer"
-    },
-    password: {
-        type: String
-    },
+        required: true
+       
+    }
 
 })
 

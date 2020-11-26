@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const farmerSchema = new mongoose.Schema({ 
-    // username: {
-    //     type: String,
-    //     required: 'Please Enter Name'
-    // },
+    name: {
+        type: String,
+        required: 'Please Enter Name'
+    },
+    email: {
+        type: String
+    },
 
     role: {
         type: String, 

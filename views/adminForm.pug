@@ -6,16 +6,26 @@ block content
       h1 Admin Registration Form
       .main-inputs
         .spacing
-          form(action='/admin' method='POST'  name='signUpForm' onsubmit='register();')
-              input.text(type='text' name='username' placeholder='username' )
-              input.text.email(type='text' name='email' placeholder='Email')
-              input.text.email(type='text' name='role' placeholder='Role')
-              input.text( type='password' name='password' placeholder='Password' )
-              input(type='submit' value='Register')
-          p
-            | Already have an Account? 
-            a(href='./login')  Login Now!
-    .footer
-      .footer-bottom
-        | &copy;  ufarm.com | Designed by Diana Apolat  
+          form(action='/admin' method='POST' id='register' name='signUpForm' onsubmit='register()')
+              div.form-row
+                div.col.form-group
+                  label(style='color: white;') User Name*:
+                  input.text(type='text' name='username' id='username')
+                br 
+                div.col.form-group    
+                  label(style='color: white') User Email*:
+                  input.text(type='text' name='email' id='email')
+                br
+                div.col.form-group  
+                  label(style='color: white;') User Role*:
+                  input.text(type='text' name='role' id='role')
+                br
+                div.col.form-group  
+                  label(style='color: white;') Password*:
+                  input.text( type='password' name='password' id='password')
+                div.col.form-group 
+                  input(type='submit' value='Register'  id='save')
+                p
+                  | Already have an Account? 
+                  a(href='./login')  Login Now! 
   script(src='js/signup.js')       

@@ -1,14 +1,25 @@
 const mongoose = require('mongoose');
 
 const famer1userSchema = new mongoose.Schema({ 
-    // username: {
-    //     type: String,
-    //     required: 'Please Enter Name'
-    // },
+    name: {
+        type: String,
+        required: 'Please Enter Name'
+    },
+
+    email: {
+        type: String,
+        required: 'Please Enter Name'
+    },
+
+    phonenumber: {
+        type: String,
+        required: 'Please Enter Phone Number'
+    },
 
     role: {
-        type: String, 
-        required: 'Please Enter Role '
+        type: String,
+        required: true,
+       
     },
     gender: [{ type: String }],
 
@@ -26,11 +37,6 @@ const famer1userSchema = new mongoose.Schema({
     location: {
         type: String,
         required: true
-    },
-    
-    phonenumber: {
-        type: String,
-        required: 'Please Enter Phone Number'
     },
     
     date: {

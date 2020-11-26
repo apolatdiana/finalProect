@@ -7,15 +7,15 @@ const adminSchema = new mongoose.Schema({
     }, 
     email: {
         type: String,
-        required: 'Please Enter Name'
+        required: 'Please Enter Email'
     }, 
     role: {
         type: String,
-        required: 'Please Enter Name'
+        required: 'Please Enter Role'
     }, 
     passsword: {
         type: String, 
-        required: 'Please Enter Role '
+        required: 'Please Enter Password '
     },
   
 })

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer'); 
+const bodyParser=require('body-parser')
 const Ufarmer = require('../models/Ufarmer');
 const UploadProduct = require('../models/UploadProduct');
 const UserCredential = mongoose.model('UserCredential');
@@ -27,7 +28,7 @@ router.post('/ufarmData', async (req, res) => {
             if (err) {
               throw err;
             }
-            res.redirect("/ufarmData");
+            res.redirect("/ufarmerList");
           });
         } catch (err) {
           res.status(400).send("Sorry! Something went wrong.");
@@ -35,7 +36,7 @@ router.post('/ufarmData', async (req, res) => {
         }
     }else {
         console.log("Can't find session")
-        res.redirect('/logInfarmer')
+        res.redirect('/logIn')
     }
     });
     
@@ -91,16 +92,16 @@ router.get('/ufarmerList', async (req, res) => {
 // })
 
 router.get('/updatefarmer/:id', async (req, res) => {
-    if(res.session.user){
+    if(req.session.user){
         try {
             const updateFarmer = await Ufarmer.findOne({ _id: req.params.id })
-            res.render('updateFarmer', { user: updateFarmer })
+            res.render('updatefo', { user: updateFarmer })
         } catch (err) {
             res.status(400).send("Unable to find item in the database");
         } 
     } else {
         console.log("Cant find session")
-        req.redirect('logIn')
+        res.redirect('logIn')
     }
   
 })
@@ -116,16 +117,14 @@ router.post('/updateFarmer', async (req, res) => {
 
 
 // Uploading images
-const storage = multer.diskStorage({ 
-    destination: (req, file, cb) => { 
-        cb(null, './public/uploads') 
-    }, 
-    filename: (req, file, cb) => { 
-        cb(null, file.fieldname + '-' + Date.now()) 
-    } 
-}); 
+const storage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename:(req, file, callback) => {
+      callback(null, file.fieldname + '-' + Date.now());
+    }});
   
-const upload = multer({ storage: storage }).single('photo');
+  
+const upload = multer({ storage: storage, }).single('photo');
 
 router.get('/productData', (req, res) => {
     res.render('uploadProduct', { title: 'Upload form' })
@@ -136,7 +135,7 @@ router.get('/productData', (req, res) => {
 router.post('/productData', upload,async (req, res) => { 
     try {
         const product = new UploadProduct(req.body);
-        product.image = req.file.filename
+        product.photo = req.file.filename
         await product.save(() => {
             console.log(req.body)
             res.redirect('/productData')
@@ -180,9 +179,9 @@ router.get('/ufList', async (req, res) => {
 router.get('/uploadList', async (req, res) => {
     if (req.session.user) {
         try {
-            let ufusers = await Ufarmer.find()
+            let ufusers = await UploadProduct.find()
             if (req.query.email) {
-                ufusers = await Ufarmer.find({ email: req.query.email })
+                ufusers = await UploadProduct.find({ email: req.query.email })
             }
             res.render('uploadList', { title: 'product list', users: ufusers, currentUser:req.session.user})
         } catch (err) {
@@ -197,7 +196,7 @@ router.get('/uploadList', async (req, res) => {
 router.get('/updateproduct/:id', async (req, res) => {
     if(req.session.user){
         try {
-            const updateFarmer = await Ufarmer.findOne({ _id: req.params.id })
+            const updateFarmer = await UploadProduct.findOne({ _id: req.params.id })
             res.render('updatePrd', { user: updateFarmer })
         } catch (err) {
             res.status(400).send("Unable to find item in the database");
@@ -211,7 +210,7 @@ router.get('/updateproduct/:id', async (req, res) => {
 
 router.post('/updateproduct', async (req, res) => { 
     try {
-      await Ufarmer.findOneAndUpdate({ _id:req.params.id }, req.body)
+      await UploadProduct.findOneAndUpdate({ _id:req.params.id }, req.body)
         res.redirect('uploadList')
     } catch (err) {
         res.status(400).send("Unable to update items in the database");

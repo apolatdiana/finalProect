@@ -18,34 +18,32 @@ div
                   img(src='pictures/pic1.jpg' alt='' style='height: 100px; width: 100px;')
                   br
                   a(href='') Upload photo
-                input#name.form-control(type='text' name='username' value=user.userName placeholder='Name')
-                input#contact.form-control(type='tel' name ='phonenumber' value=user.userNamevalue=user.phoneNumber pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number')
+                input#name.form-control(type='text' name='name' value=user.name placeholder='Full Name')
                 input#email.form-control(type='email' name='email' value=user.email placeholder='Email')
+                input#contact.form-control(type='tel' name ='phonenumber' value=user.phonenumber pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number')
+                input#role.form-control(type='text' name='role' value=user.role placeholder='Role')
                 label.form-check.form-check-inline(style='color:white') Gender
                     br
                     br
-                    input.form-check-input(type="radio" name="gender" value="female" checked=user.gender===female)
-                    span.form-check-label(style='color:white') Female 
+                    input(type="radio" name="gender" value="female" checked=user.gender==="female")
+                    label(style='color:white') Female 
                 label.form-check.form-check-inline
-                    input.form-check-input(type="radio" name="gender" value="male" checked=user.gender===male)
-                    span.form-check-label(style='color:white; float:right') Male
+                    input(type="radio" name="gender" value="male" checked=user.gender==="male")
+                    label(style='color:white; float:right') Male
               .col-md-6.form-right
-                input#email.form-control(type='id' name='idNumber' value=user.idNumber placeholder='ID Number')
-                input#age.form-control(type='date' name='date' value=user.date placeholder='Date of Birth')
                 input#NIN.form-control(type='text' name='nin' value=user.nin placeholder='NIN')
-                input#nextOfKinName.form-control(type='text' value=user.occupation  name='occupation' placeholder='Occupation')
-                input#contactOfKin.form-control(type='text' name ='location' value=user.location placeholder='Home location')
+                input#occupation.form-control(type='text' value=user.occupation  name='occupation' placeholder='Occupation')
+                input#location.form-control(type='text' name ='location' value=user.location placeholder='Home location')
+                input#age.form-control(type='date' name='date' value=user.date placeholder='Date of Birth')
                 select.form-control(name="resident")
-                    option(value="type" selected=user.resident ) Resident Type
-                    option(value="permanent" selected=user.resident) Permanent
-                    option(value="non" selected=user.resident) Non-Resident
+                    option(value="permanent" selected=user.resident==="permanent") Permanent
+                    option(value="non" selected=user.resident==="non") Non-Resident
                 select.form-control(name="ward")
-                    option(value="ward" selected=user.ward ) Select Ward
-                    option(value="east" selected=user.ward) East Ward
-                    option(value="west" selected=user.ward) West Ward
-                    option(value="north" selected=user.ward) North Ward 
-                    option(value="South" selected=user.ward) South Ward 
-              input(type='submit' value='UPDATE')
+                    option(value="east" selected=user.ward==="east") East Ward
+                    option(value="west" selected=user.ward==="west") West Ward
+                    option(value="north" selected=user.ward==="north") North Ward 
+                    option(value="South" selected=user.ward==="South") South Ward 
+              button(type='submit') UPDATE
     br
   .footer
     .footer-content(style='background-color: darkslategray; color: white;')

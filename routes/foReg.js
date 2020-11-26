@@ -4,7 +4,6 @@ const FoReg = require('../models/FoReg');
 const UserCredential =require('../models/UserCredential');
 
 
-
 router.get('/aoDashboard', async (req, res) => {
     if (req.session.user) {
         try {
@@ -76,25 +75,6 @@ router.get('/foList', async (req, res) => {
 })
 
 
-    //Gives access to retrieve data in the db
-// router.get('/foList', async (req, res) => {
-//     if(res.session.user){
-//         try {
-
-//             let auser = await FoReg.find()
-//             console.log(auser)
-//             res.render('foList',{users: auser})
-            
-//         }catch(err){
-//              res.status(400).send('Unable to find items in database')
-//         }
-//     } else {
-//         console.log("Cant find session")
-//         req.redirect('logIn')
-//     }
-  
-// })
-
 router.get('/update/:id', async (req, res) => {
     if(req.session.user){
         try {
@@ -105,18 +85,24 @@ router.get('/update/:id', async (req, res) => {
         } 
     } else {
         console.log("Cant find session")
-        res.redirect('logIn')
+        res.redirect('/logIn')
     }
   
 })
 
 router.post('/update', async (req, res) => { 
+    if(req.session.user){
     try {
-      await FoReg.findOneAndUpdate({ _id:req.params.id }, req.body)
-        res.redirect('foList')
+        await FoReg.findOneAndUpdate({ _id: req.params.id }, req.body)
+        console.log(req.body)
+        res.redirect('/foList', )
     } catch (err) {
         res.status(400).send("Unable to update items in the database");
-    }  
+        } 
+    } else {
+        console.log("Cant find session")
+        res.redirect('/logIn')
+    }    
 })
    
 

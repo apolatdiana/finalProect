@@ -11,6 +11,11 @@ const farmerSchema = new mongoose.Schema({
         required: 'Please Enter Price per Kg'
     },
 
+    quantity: {
+        type: String,
+        required: 'Please Enter total Kgs of product'
+    },
+
     date: {
         type: String,
         required: 'Please Enter Upload date'
@@ -30,7 +35,7 @@ const farmerSchema = new mongoose.Schema({
     delivery: [{type: String,}],
    
     
-    uploadImg: {
+    photo: {
         data: Buffer, 
         type: String
     }, 
